@@ -1,3 +1,20 @@
+# lab 02
+Number and name of feature:
+1.Display images
+
+2.Allow users to vote for their favorite beast
+
+3.Bootstrap
+
+Estimate of time needed to complete:
+2 hours
+
+
+Actual time needed to complete: 3 hours
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
