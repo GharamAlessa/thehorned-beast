@@ -1,24 +1,39 @@
 import React from "react";
-import HonerdBeast from "./HornedBeast";
-import HonndData from "./assets/HornedBeast.json";
+import HornedBeasts from "./HornedBeast";
+import data from "../assets/data.json";
+import SelectForm from "./SelectForm";
+
 class Main extends React.Component {
-  filling() {
-    return HonndData.map((animal) => {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      newData: data,
+    };
+  }
+  handle = (item) => {
+    this.setState({ newdata: item });
+    console.log("sam", item);
+  };
+
+  render() {
+    let arr = this.state.newData.map((horn) => {
       return (
-        <HonerdBeast
-          img={animal.image_url}
-          describtion={animal.description}
-          title={animal.title}
+        <HornedBeasts
+          title={horn.title}
+          description={horn.description}
+          image_url={horn.image_url}
+          handleClose={this.props.handleClose}
         />
       );
     });
-  }
-  render() {
     return (
-      <div>
-        <>{this.filling()} </>
-      </div>
+      <main>
+        <SelectForm Callback={this.handle} />
+        {arr}
+      </main>
     );
   }
 }
+
 export default Main;
