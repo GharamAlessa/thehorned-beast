@@ -1,24 +1,47 @@
 import React from "react";
-import HonerdBeast from "./HornedBeast";
-import HonndData from "./assets/HornedBeast.json";
+import HornedBeasts from "./HornedBeasts";
 class Main extends React.Component {
-  filling() {
-    return HonndData.map((animal) => {
+  render() {
+
+    let arr = this.props.bests.map(horn => {
       return (
-        <HonerdBeast
-          img={animal.image_url}
-          describtion={animal.description}
-          title={animal.title}
+        <HornedBeasts
+          title={horn.title}
+          description={horn.description}
+          image_url={horn.image_url}
+          handleClose={this.props.handleClose}
         />
       );
     });
-  }
-  render() {
-    return (
-      <div>
-        <>{this.filling()} </>
-      </div>
-    );
+    return <main>{arr}</main>;
   }
 }
+
+    return (
+      
+        <main>
+          {
+            this.propsHornedData.map((selectedBeastItem) => {
+              return (
+                <HornedBeasts
+                  imageUrl={selectedBeastItem.image_url}
+                  title={selectedBeastItem.title}
+                  description={selectedBeastItem.description}
+                  keyword={selectedBeastItem.keyword}
+                  horns={selectedBeastItem.horns}
+                  displayModal={this.props.displayModal}
+                  select>
+  <option value="grapefruit">Grapefruit</option>
+  <option value="lime">Lime</option>
+  <option selected value="coconut">Coconut</option>
+  <option value="mango">Mango</option>
+</select>
+                />
+              
+             ) })
+          }
+
+        
+
+
 export default Main;

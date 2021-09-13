@@ -1,31 +1,39 @@
 import React from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
 import Card from "react-bootstrap/Card";
-import Button from "react-bootstrap/Button";
-class HonerdBeast extends React.Component {
-  state = { counter: 0 };
+
+class HornedBeasts extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      Votes: 0,
+    };
+  }
+  increaseHorneVotes = () => {
+    this.setState({
+      Votes: this.state.Votes + 1,
+    });
+    this.props.handleClose(this.props.title,this.props.description,this.props.image_url);
+  };
+
   render() {
     return (
-      <Card style={{ width: "18rem" }}>
-        <Card.Img
-          onClick={() =>
-            this.setState({
-              counter: this.state.counter + 1,
-            })
-          }
-          src={this.props.img}
-          alt={this.props.description}
-          title={this.props.title}
-        />
-        <Card.Body>
-          <Card.Title> {this.props.title}</Card.Title>
-          <Card.Text>{this.props.describtion}</Card.Text>
-          <Card.Text>votes= {this.state.counter}</Card.Text>
-
-          
-        </Card.Body>
-      </Card>
+      <div>
+        <Card style={{ width: "20rem" }}>
+          <Card.Img
+            variant="top"
+            src={this.props.image_url}
+            onClick={this.increaseHorneVotes}
+          />
+          <Card.Body>
+            <Card.Title>The Title : {this.props.title}</Card.Title>
+            <Card.Text>number of horns: {this.props.horns}</Card.Text>
+            <Card.Text>Descriptions: {this.props.descriptions}</Card.Text>
+            <Card.Text>Number of votes : {this.state.Votes} 💓</Card.Text>
+          </Card.Body>
+        </Card>
+      </div>
     );
   }
 }
-export default HonerdBeast;
+
+export default HornedBeasts;
