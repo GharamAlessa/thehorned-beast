@@ -1,10 +1,10 @@
-import React from "react"; 
+import React from "react";
 import Header from "./components/Header";
 import Main from "./components/Main";
 import Footer from "./components/Footer";
 import "bootstrap/dist/css/bootstrap.min.css";
-import SelectedBeast from "./selectedBeast";
-import data from './assets/data.json';
+import SelectedBeast from "./components/SelectedBeast";
+import data from "./assets/data.json";
 
 class App extends React.Component {
   constructor(props) {
@@ -30,7 +30,7 @@ class App extends React.Component {
     return (
       <div>
         <Header />
-        <Main  bests={data} handleClose={this.handleClose} />
+        <Main bests={data} handleClose={this.handleClose} />
         <Footer />
         <SelectedBeast
           show={this.state.show}
